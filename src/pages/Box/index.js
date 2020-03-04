@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import api from '../../services/api';
-import { distanceInWords } from 'date-fns';
+import formatDistance from 'date-fns/formatDistance';
 import pt from 'date-fns/locale/pt';
 import Dropzone from 'react-dropzone';
 import socket from 'socket.io-client';
@@ -72,7 +72,7 @@ export default class Box extends Component {
                   <MdInsertDriveFile size={24} color="#A5CFFF"/>
                   <strong>{file.title}</strong>
                 </a>
-                <span>há {distanceInWords(file.createdAt, new Date(), { locale: pt})}</span>
+                <span>há {formatDistance(file.createdAt, new Date(), { locale: pt})}</span>
               </li>
             ))
           }
